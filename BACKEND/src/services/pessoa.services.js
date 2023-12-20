@@ -1,12 +1,11 @@
-const { where } = require("sequelize");
-const pessoa = require("../models/pessoa.js");
+const Pessoa = require("../models/pessoa.js");
 
 const pessoaService = {
   getPessoas: async () => {
     return await Pessoa.findAll();
   },
   getById: async (id) => {
-    return await Pessoa.findByPk();
+    return await Pessoa.findByPk(id);
   },
   insertPessoa: async ({ nome, sobrenome, idade }) => {
     return await Pessoa.create({ nome, sobrenome, idade });
