@@ -27,7 +27,7 @@ const controllerPessoa = {
   },
   inserirPessoa: async (req, res) => {
     try {
-      const novaPessoa = await pessoaService.createPessoa(req.body);
+      const novaPessoa = await pessoaService.insertPessoa(req.body);
       return res.status(201).json(novaPessoa);
     } catch (error) {
       console.log(error);

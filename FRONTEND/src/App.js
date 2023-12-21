@@ -7,7 +7,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 //Outros imports
 import { useEffect, useState } from "react";
-import { apiGetPessoas, apiAddPessoa, apiGetPessoaById, apiUpdatePessoa, apiDeletePessoa } from "./api/pessoa.service";
+import { apiGetPessoas, apiAddPessoa, apiUpdatePessoa, apiDeletePessoa } from "./api/pessoa.service";
 
 function App() {
 

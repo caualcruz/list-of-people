@@ -1,4 +1,4 @@
-const URL_API = "http://localhost:5500/api";
+const URL_API = "http://localhost:7000/api";
 
 const apiGetPessoas = async () => {
   try {
@@ -13,6 +13,20 @@ const apiGetPessoas = async () => {
     throw new Error("Não foi possível carregar os dados");
   }
 };
+const apiGetPessoaById = async (id) => {
+  try {
+    const res = await fetch(`${URL_API}/pessoa/${id}`);
+
+    if (!res.ok) {
+      throw new Error('Houve na busca da pessoa. Pessoa não identificada')
+    }
+    const result = await res.json();
+    return result;
+
+  } catch (error) {
+    throw new Error(error.message)
+  }
+}
 
 const apiAddPessoa = async (novaPessoa) => {
   try {
@@ -73,20 +87,6 @@ const apiDeletePessoa = async (id) => {
   }
 }
 
-const apiGetPessoaById = async (id) => {
-  try {
-    const res = await fetch(`${URL_API}/pessoa/${id}`);
 
-    if (!res.ok) {
-      throw new Error('Houve na busca da pessoa. Pessoa não identificada')
-    }
-
-    const result = await res.json();
-    return result;
-
-  } catch (error) {
-    throw new Error(error.message)
-  }
-}
 
 export { apiAddPessoa, apiGetPessoas, apiGetPessoaById, apiUpdatePessoa, apiDeletePessoa };

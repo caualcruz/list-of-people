@@ -4,6 +4,7 @@ require("dotenv").config();
 
 const server = express();
 server.use(cors());
+server.use(express.urlencoded({extended: true}))
 server.use(express.json());
 
 const pessoaRoutes = require("./src/routes/pessoaRoutes");
